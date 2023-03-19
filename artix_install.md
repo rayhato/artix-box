@@ -52,7 +52,7 @@ connmanctl> quit
 ```
 
 ### Drive partitioning
-In this example will be used two partitions: ```/boot``` and ```/``` with legacy boot (BIOS).
+In this example will be used two partitions: ```/boot``` and encrypted ```/``` with legacy boot (BIOS).
 
 #### More info: 
 Partitioning: [Arch Wiki Partitioning](https://wiki.archlinux.org/title/Partitioning) 
@@ -138,12 +138,12 @@ The essential packages. If you get warnings about missing firmware modules, more
 basestrap -i /mnt base base-devel runit elogind-runit linux linux-firmware linux-firmware-qlogic grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit vim neovim
 ```
 ### Generate fstab 
-Get the UUIDs. Return to the livecd session (alt+left) and run:
+Get the UUIDs for grub and fstab
 ```bash
 lsblk -f >> /mnt/etc/default/grub
 fstabgen -U /mnt >> /mnt/etc/fstab
 ```
-### Configure new system
+### Configure target system
 
 ```bash
 # Press alt+right to open a new terminal session, login with credetinals provided by livecd 
