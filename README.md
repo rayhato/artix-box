@@ -232,3 +232,15 @@ Once more return to livecd session (alt+left). Install grub:
 grub-install --root-directory=/mnt /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+That's it, reboot without the USB stick and you should be ready to go
+
+## Post-install
+### Connect to Wi-Fi using [NetworkManager](https://wiki.archlinux.org/title/NetworkManager)
+```
+nmcli device wifi list
+nmcli device wifi connect <SSID> password <password>
+```
+Run the pacman to syncrhonise the databases (yy is forcing re-download the package database):
+```
+pacman -Syyu
+```
