@@ -1,5 +1,6 @@
 # arch-box
-Fresh arch-minimal install for ThinkPad (or wherever)
+Fresh Arch Linux minimal install using for ThinkPad (or wherever).
+In this guide Artix will be installed (Arch without systemd, using runit as init system).
 
 
 ## Preparations
