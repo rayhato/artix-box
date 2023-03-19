@@ -244,3 +244,7 @@ Run the pacman to syncrhonise the databases (yy is forcing re-download the packa
 ```
 pacman -Syyu
 ```
+Try to install something useful:
+```
+pacman -S git
+```
