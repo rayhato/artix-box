@@ -8,7 +8,7 @@ More info: [Artix Website](https://artixlinux.org/)
 ## Preparations
 [Download iso here](https://artixlinux.org/download.php)
 
-Burn it to usb stick (I recommend [Ventoy](https://www.ventoy.net/en/index.html) - a tool that allows you to boot from iso files directly, without)
+Burn it to usb stick (I recommend [Ventoy](https://www.ventoy.net/en/index.html) - a tool that allows you to boot from local iso files directly)
 
 ### Wirless network setup 
 More info: [Arch wiki ConnMan](https://wiki.archlinux.org/title/ConnMan)
