@@ -137,12 +137,7 @@ The essential packages. If you get warnings about missing firmware modules, more
 ```bash
 basestrap -i /mnt base base-devel runit elogind-runit linux linux-firmware linux-firmware-qlogic grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit vim neovim
 ```
-### Generate fstab 
-Get the UUIDs for grub and fstab
-```bash
-lsblk -f >> /mnt/etc/default/grub
-fstabgen -U /mnt >> /mnt/etc/fstab
-```
+
 ### Configure target system
 
 ```bash
@@ -193,8 +188,16 @@ vim /etc/runit/sv/agetty-tty1/conf
 ---
 GETTY_ARGS="--noclear --autologin username"
 ---
+```
 
-# Setup the decrypt on boot
+### Generate fstab 
+Get the UUIDs for grub and fstab, in a new livecd non-chroot session (alt+left/right)
+```bash
+lsblk -f >> /mnt/etc/default/grub
+fstabgen -U /mnt >> /mnt/etc/fstab
+
+# Now back to chrooted session
+# Setup the decrypt on boot in 
 # Add in the HOOKS string before the *filesystem*
 vim /etc/mkinitcpio.conf
 ---
