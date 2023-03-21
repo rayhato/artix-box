@@ -135,7 +135,10 @@ mount /dev/sda1 /mnt/boot
 ## Installation
 The essential packages. If you get warnings about missing firmware modules, more info [mkinitcpio](https://wiki.archlinux.org/title/mkinitcpio)
 ```bash
-basestrap -i /mnt base base-devel runit elogind-runit linux linux-firmware linux-firmware-qlogic grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit vim neovim
+basestrap -i /mnt base base-devel runit elogind-runit \
+linux linux-firmware linux-firmware-qlogic grub \
+networkmanager networkmanager-runit cryptsetup \
+lvm2 lvm2-runit vim neovim
 ```
 
 ### Configure target system
