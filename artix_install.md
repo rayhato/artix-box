@@ -215,13 +215,19 @@ mkinitcpio -p linux
 # Lastly, remove the lsblk junk at the end of the file, or your system will not boot.
 vim /etc/default/grub
 ---
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quite cryptdevice=UUID=<encrypted-uuid-value-here>:system root=UUID=<decrypted-uuid-value-here>"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=<encrypted-uuid-value-here>:system root=UUID=<decrypted-uuid-value-here>"
 ---
 
 
 # Install grub
-grub-install --root-directory=/mnt /dev/sda
+grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# If grub gives you sector 32 warning, run following and install grub again
+# dd if=/dev/zero of=/dev/sda bs=512 count=1 seek=32
+
+# If you want to install grub from livecd session
+# grub-install --root-directory=/mnt /dev/sda
 
 # That's it, reboot without the USB stick and you should be ready to go
 exit
