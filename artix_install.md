@@ -134,6 +134,7 @@ mount /dev/sda1 /mnt/boot
 
 ## Installation
 The essential packages. If you get warnings about missing firmware modules, more info [mkinitcpio](https://wiki.archlinux.org/title/mkinitcpio)
+For UEFI boot, add efibootmgr
 ```bash
 basestrap -i /mnt base base-devel runit elogind-runit \
 linux linux-firmware linux-firmware-qlogic grub \
@@ -222,6 +223,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=<encrypted-uuid-va
 # Install grub
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# For UEFI boot
+# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --debug 
 
 # If grub gives you sector 32 warning, run following and install grub again
 # dd if=/dev/zero of=/dev/sda bs=512 count=1 seek=32
